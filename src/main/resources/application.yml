@@ -1,0 +1,47 @@
+# Default configuration
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+# Development profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/departmentappdev
+    password: Barath@1974
+  application:
+    name: SpringBootPractise
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+# Production profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/departmentappprod
+    password: Barath@1974
+  application:
+    name: SpringBootPractise
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
